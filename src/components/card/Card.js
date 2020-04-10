@@ -1,32 +1,23 @@
 import React from 'react'
 import PropTypes from "prop-types"
 import '../../assets/styles/components/card.sass'
-import CardHeader from './CardHeader'
-import CardBody from './CardBody'
-import CardFooter from './CardFooter'
+import '../../assets/styles/_utils.sass'
 
 const Card = ({ children }) => {
 
     return (
-        <div className={`card-container`}>
-            <CardHeader />
+        <div className={`card-container elevation`}>
+            {children}
         </div>
     )
 }
 
 Card.propTypes = {
-    children(props, propName, componentName) {
-        let prop = props[propName]
-        let types = [CardHeader, CardBody, CardFooter]
-        let error;
+    elevation: PropTypes.number.isRequired
+}
 
-        React.Children.forEach(prop, (el) => {
-            if (types.indexOf(el.type) === -1) {
-                error = new Error(`${componentName} should have childs of the following types: ${types.join('`, `')}`)
-            }
-        })
-        return error;
-    }
+Card.defaultProps = {
+    elevation: 3
 }
 
 export default Card
