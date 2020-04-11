@@ -1,23 +1,11 @@
 import React from 'react'
-import PropTypes from "prop-types"
 import '../../assets/styles/components/card.sass'
-import '../../assets/styles/_utils.sass'
+import '../../assets/styles_utils.sass'
 
-const Card = ({ children }) => {
-
-    return (
-        <div className={`card-container elevation`}>
-            {children}
-        </div>
-    )
-}
-
-Card.propTypes = {
-    elevation: PropTypes.number.isRequired
-}
-
-Card.defaultProps = {
-    elevation: 3
-}
+const Card = ({ children }) => (
+    <div className={`card-container elevation`}>
+        {children}
+    </div>
+)
 
 export default Card
